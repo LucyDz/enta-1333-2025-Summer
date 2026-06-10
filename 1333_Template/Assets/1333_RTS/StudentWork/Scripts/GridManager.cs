@@ -33,8 +33,8 @@ public class GridManager : MonoBehaviour
                 {
                     Name = $"Cell_[{x},{y}]",
                     WorldPosition = worldPos * _gridSettings.NodeSize,
-                    Walkable = true,
-                    Weight = 1,
+                    //Walkable = true,
+                    //Weight = 1,
                 };
 
                 gridNodes[x, y] = node;
@@ -58,8 +58,8 @@ public class GridManager : MonoBehaviour
                 {
                     Name = node.Name,
                     WorldPosition = node.WorldPosition,
-                    Walkable = node.Walkable,
-                    Weight = node.Weight,
+                    //Walkable = node.Walkable,
+                    //Weight = node.Weight,
                 });
             }
         }
@@ -84,7 +84,7 @@ public class GridManager : MonoBehaviour
             for (int y = 0; y < gridNodes.GetLength(1); ++y)
             {
                 GridNode node = gridNodes[x, y];
-                Gizmos.color = node.Walkable ? Color.green : Color.red;
+                Gizmos.color = node.GizmoColor;
                 Gizmos.DrawWireCube(node.WorldPosition, Vector3.one * GridSettings.NodeSize * 0.9f);
             }
         }

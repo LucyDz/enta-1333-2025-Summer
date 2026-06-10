@@ -5,6 +5,9 @@ public struct GridNode
 {
     public string Name;
     public Vector3 WorldPosition;
-    public bool Walkable;
-    public int Weight;
+    public TerrainType TerrainType;
+
+    public bool Walkable => TerrainType?.Walkable ?? false;
+    public int Weight => TerrainType?.MvmntCost ?? 1;
+    public Color GizmoColor => TerrainType?.GizmoColor ?? Color.gray;
 }
